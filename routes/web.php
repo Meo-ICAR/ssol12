@@ -19,6 +19,14 @@ Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
