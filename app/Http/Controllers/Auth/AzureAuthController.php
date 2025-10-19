@@ -17,6 +17,11 @@ class AzureAuthController extends Controller
         return Socialite::driver('azure')->redirect();
     }
 
+    public function redirectToAzureAd(): RedirectResponse
+    {
+        return Socialite::driver('azure')->with(['tenant' => 'organizations'])->redirect();
+    }
+
     public function handleAzureCallback(): RedirectResponse
     {
         $azureUser = Socialite::driver('azure')->stateless()->user();
