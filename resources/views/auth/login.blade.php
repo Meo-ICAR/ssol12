@@ -16,6 +16,13 @@
 <body>
     <div class="card">
         <h2 style="margin-top:0;">Sign in</h2>
+
+        @if(session('error'))
+            <div style="background:#fef2f2; border:1px solid #fecaca; color:#dc2626; padding:12px; border-radius:8px; margin-bottom:16px; font-size:14px;">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('login.store') }}" style="margin-bottom:12px;">
             @csrf
             <div class="field" style="margin-bottom:10px;">
